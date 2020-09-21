@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Shubham Mawa / Home [WIP]"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Shubham Mawa"
 description              : &description "personal description"
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/shubham-mawa-86877612a/"
+  linkedin         : "https://www.linkedin.com/in/shubham-mawa/"
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
