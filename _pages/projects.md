@@ -1,10 +1,12 @@
 ---
-permalink: /
+permalink: /projects/
 title: "Projects"
 excerpt: "Description of projects"
 author_profile: true
 redirect_from: 
-  - /projects/
+  - /projects.html
+  - /research
+  - /research.html
 ---
 
 ### MixMatch: Semi-Supervised Learning
