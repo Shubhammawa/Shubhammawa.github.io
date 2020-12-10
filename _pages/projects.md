@@ -8,7 +8,7 @@ redirect_from:
   - /research
   - /research.html
 ---
-## MixMatch  
+## Semi-Supervised Learning
 
 ## Age and Gender Estimation  
 
