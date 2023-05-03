@@ -10,7 +10,7 @@ redirect_from:
 
 
 Hi,  
-I am Shubham Mawa, I work in Mercedes-Benz Research and Development India in the field of Computer Vision and Artificial Intelligence. I graduated from IIT Kharagpur with a dual degree, B.Tech and M.Tech in Industrial and Systems Engineering.  
+I am Shubham Mawa, I work at Mercedes-Benz Research and Development India in the field of Computer Vision and Artificial Intelligence. I graduated from IIT Kharagpur with a dual degree, B.Tech and M.Tech in Industrial and Systems Engineering.  
 
 I read, I write, I code, and I also play football!  
 
