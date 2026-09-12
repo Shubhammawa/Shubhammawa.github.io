@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Shubham Mawa — Senior Machine Learning Engineer building reliable, generative and computer vision systems.">
+  <meta name="theme-color" content="#0b0f14">
+  <title>Shubham Mawa — Senior Machine Learning Engineer</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #111820;
+      --panel-2: #151f28;
+      --line: #25313c;
+      --text: #edf3f6;
+      --muted: #9eabb5;
+      --soft: #c9d4d8;
+      --lime: #c4f36a;
+      --cyan: #74e6da;
+      --orange: #ffad70;
+      --max: 1160px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .24);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% 0%, rgba(116, 230, 218, .09), transparent 28rem),
+        radial-gradient(circle at 10% 22%, rgba(196, 243, 106, .06), transparent 24rem),
+        var(--bg);
+      font: 16px/1.65 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+    .wrap { width: min(calc(100% - 48px), var(--max)); margin: auto; }
+    .grid-noise {
+      position: fixed; inset: 0; pointer-events: none; opacity: .2; z-index: -1;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .logo { text-decoration: none; font: 700 18px/1 "IBM Plex Mono", Consolas, monospace; letter-spacing: -.05em; }
+    .logo b { color: var(--lime); }
+    .nav { display: flex; align-items: center; gap: 22px; }
+    .nav a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    .nav a:hover { color: var(--lime); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 11px 16px; border: 1px solid var(--line); border-radius: 5px;
+      color: var(--text); background: var(--panel); font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+    .button:hover { border-color: var(--lime); background: var(--panel-2); transform: translateY(-2px); }
+    .button.primary { border-color: var(--lime); color: #142007; background: var(--lime); }
+    .button.primary:hover { background: #d8ff87; }
+    .hero { display: grid; grid-template-columns: 1.25fr .75fr; gap: 64px; align-items: center; padding: 110px 0 120px; }
+    .kicker, .section-label {
+      color: var(--lime); font: 700 12px/1.3 "IBM Plex Mono", Consolas, monospace; letter-spacing: .13em; text-transform: uppercase;
+    }
+    .kicker { display: flex; align-items: center; gap: 10px; }
+    .kicker::before { content: ""; width: 30px; height: 1px; background: var(--lime); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 780px; margin: 20px 0 24px; font-size: clamp(48px, 8vw, 88px); line-height: .98; letter-spacing: -.07em; }
+    h1 em { color: var(--lime); font-style: normal; }
+    .lede { max-width: 650px; color: var(--soft); font-size: 19px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .status-card { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(145deg, rgba(21,31,40,.95), rgba(12,17,23,.95)); box-shadow: var(--shadow); }
+    .terminal-line { color: var(--muted); font: 13px/1.6 "IBM Plex Mono", Consolas, monospace; }
+    .terminal-line strong { color: var(--cyan); font-weight: 500; }
+    .terminal-title { display: flex; gap: 7px; margin-bottom: 22px; }
+    .terminal-title i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+    .terminal-title i:nth-child(2) { background: var(--lime); }
+    .terminal-title i:nth-child(3) { background: var(--cyan); }
+    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+    .stat { padding-top: 14px; border-top: 1px solid var(--line); }
+    .stat b { display: block; color: var(--text); font-size: 24px; line-height: 1; }
+    .stat span { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
+    section { padding: 86px 0; border-top: 1px solid rgba(255,255,255,.08); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 38px; }
+    h2 { margin: 8px 0 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.05; letter-spacing: -.06em; }
+    .section-head p { max-width: 390px; margin: 0; color: var(--muted); font-size: 14px; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; }
+    .about-copy { color: var(--soft); font-size: 18px; }
+    .about-copy strong { color: var(--text); }
+    .quick-facts { display: grid; gap: 16px; align-content: start; }
+    .fact { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .fact b { color: var(--lime); font: 12px/1.4 "IBM Plex Mono", Consolas, monospace; text-transform: uppercase; }
+    .fact span { color: var(--soft); }
+    .timeline { display: grid; gap: 18px; }
+    .role { display: grid; grid-template-columns: 180px 1fr; gap: 36px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .role:last-child { border-bottom: 0; }
+    .role-meta { color: var(--muted); font: 12px/1.6 "IBM Plex Mono", Consolas, monospace; }
+    .role-meta strong { display: block; margin-bottom: 7px; color: var(--lime); font: inherit; }
+    h3 { margin-bottom: 6px; font-size: 22px; letter-spacing: -.035em; }
+    .company { color: var(--cyan); font-size: 14px; }
+    .role ul { margin: 18px 0 0; padding-left: 18px; color: var(--soft); }
+    .role li { margin: 8px 0; }
+    .tech { margin-top: 17px; color: var(--muted); font-size: 13px; }
+    .tech b { color: var(--text); font-weight: 500; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .project { min-height: 245px; display: flex; flex-direction: column; justify-content: space-between; padding: 26px; border: 1px solid var(--line); background: var(--panel); transition: transform .2s, border-color .2s; }
+    .project:hover { border-color: var(--cyan); transform: translateY(-4px); }
+    .project-top { display: flex; justify-content: space-between; color: var(--lime); font: 14px "IBM Plex Mono", Consolas, monospace; }
+    .project p { max-width: 430px; margin: 0; color: var(--muted); }
+    .project small { color: var(--cyan); font: 12px "IBM Plex Mono", Consolas, monospace; }
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .skill-group { padding: 22px; border: 1px solid var(--line); background: rgba(17,24,32,.65); }
+    .skill-group h3 { margin-bottom: 13px; color: var(--lime); font: 13px "IBM Plex Mono", Consolas, monospace; }
+    .skill-group p { margin: 0; color: var(--soft); }
+    .edu-awards { display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; }
+    .education-item { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .education-item h3 { margin-bottom: 4px; }
+    .education-item p { margin: 0; color: var(--muted); }
+    .award-list { margin: 0; padding-left: 18px; color: var(--soft); }
+    .award-list li { margin-bottom: 12px; }
+    .cp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .cp-card { display: flex; min-height: 130px; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid var(--line); background: var(--panel); text-decoration: none; }
+    .cp-card:hover { border-color: var(--lime); }
+    .cp-card b { font-size: 16px; }
+    .cp-card span { color: var(--muted); font-size: 12px; }
+    .contact { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; }
+    .contact h2 { max-width: 630px; }
+    .contact-copy { max-width: 580px; margin-top: 18px; color: var(--muted); }
+    .contact-links { display: grid; gap: 11px; min-width: 245px; }
+    .contact-links a { color: var(--soft); text-decoration: none; }
+    .contact-links a:hover { color: var(--lime); }
+    footer { display: flex; justify-content: space-between; gap: 18px; padding: 30px 0 44px; color: var(--muted); font-size: 12px; }
+    footer span { font-family: "IBM Plex Mono", Consolas, monospace; }
+    @media (max-width: 800px) {
+      .hero, .about, .edu-awards, .contact { grid-template-columns: 1fr; gap: 36px; }
+      .hero { padding: 80px 0 88px; }
+      .status-card { max-width: 520px; }
+      .role { grid-template-columns: 1fr; gap: 10px; }
+      .cp-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(calc(100% - 32px), var(--max)); }
+      .nav a { display: none; }
+      .topbar { padding: 18px 0; }
+      h1 { font-size: clamp(46px, 14vw, 72px); }
+      section { padding: 66px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+      .project-grid, .skills { grid-template-columns: 1fr; }
+      .cp-grid { grid-template-columns: 1fr 1fr; }
+      .contact-links { min-width: 0; }
+      footer { display: block; }
+      footer span { display: block; margin-top: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-noise" aria-hidden="true"></div>
+  <header class="wrap topbar">
+    <a class="logo" href="#" aria-label="Shubham Mawa home">shubham<b>.</b>mawa</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a class="button" href="Shubham_Mawa_Resume.pdf" download>Download résumé ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-labelledby="intro-title">
+      <div>
+        <p class="kicker">Senior machine learning engineer</p>
+        <h1 id="intro-title">Turning frontier <em>AI research</em> into systems that ship.</h1>
+        <p class="lede">Technical lead with 5+ years of experience building production-grade computer vision, generative AI and MLOps solutions — from first experiment to measurable impact.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#work">Explore experience <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <aside class="status-card" aria-label="Current role summary">
+        <div class="terminal-title" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="terminal-line">$ whoami</p>
+        <p class="terminal-line"><strong>shubham@mercedes-benz</strong></p>
+        <p class="terminal-line">building: synthetic data + GenAI</p>
+        <p class="terminal-line">location: Bengaluru / Germany</p>
+        <div class="stat-grid">
+          <div class="stat"><b>5+</b><span>years in ML</span></div>
+          <div class="stat"><b>4</b><span>engineers led</span></div>
+          <div class="stat"><b>95%</b><span>cost reduction</span></div>
+          <div class="stat"><b>15%</b><span>Recall@10 lift</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="wrap" aria-labelledby="about-title">
+      <div class="section-head"><div><span class="section-label">01 / profile</span><h2 id="about-title">The short version.</h2></div><p>Research-minded. Delivery-focused. Always curious.</p></div>
+      <div class="about">
+        <p class="about-copy">I’m a <strong>Senior ML Engineer and Technical Lead</strong> at Mercedes-Benz Research and Development India. I bridge model research and production engineering, with a focus on making ambitious AI useful, reliable and ready for the real world.</p>
+        <div class="quick-facts">
+          <div class="fact"><b>Focus</b><span>Diffusion models, vision-language models, LLMs, computer vision and ML system design</span></div>
+          <div class="fact"><b>Approach</b><span>Small experiments, rigorous measurement, clean interfaces and thoughtful teams</span></div>
+          <div class="fact"><b>Languages</b><span>English · Hindi · German (A1)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="wrap" aria-labelledby="work-title">
+      <div class="section-head"><div><span class="section-label">02 / experience</span><h2 id="work-title">Where I’ve made an impact.</h2></div><p>Five years turning complex ML problems into dependable products.</p></div>
+      <div class="timeline">
+        <article class="role">
+          <div class="role-meta"><strong>Oct 2024 — now</strong>Bengaluru · Sindelfingen</div>
+          <div><h3>Senior Machine Learning Engineer</h3><div class="company">Mercedes-Benz Research and Development India</div><ul><li>Pioneered a synthetic data and GenAI solution for computer vision training, reducing acquisition and annotation costs by 95%.</li><li>Led diffusion-model pipelines for inpainting, stylization and domain adaptation, increasing interior scene segmentation mIoU by 30% without annotated segmentation data.</li><li>Fine-tuned CLIP ViT-B/32 with LoRA, improving Recall@10 by 15% while updating only 3% of model parameters.</li><li>Orchestrated five concurrent ML projects and led a team of four engineers; served onsite in Germany for four months across production deployments.</li></ul><p class="tech"><b>Stack:</b> Diffusion Models · GenAI · PyTorch · Agile · System Design · Team Leadership</p></div>
+        </article>
+        <article class="role">
+          <div class="role-meta"><strong>Aug 2021 — Sep 2024</strong>Bengaluru</div>
+          <div><h3>Machine Learning Engineer</h3><div class="company">Mercedes-Benz Research and Development India</div><ul><li>Developed a graph convolutional network for human stature and 3D head-position estimation.</li><li>Optimized GPU data augmentations, cutting training time by 25% and improving human pose performance by 5%.</li><li>Built an uncertainty-weighted multi-task loss, improving PCK@50 by 12% and mIoU by 7%.</li><li>Worked on PTQ and QAT for low-latency edge deployment.</li></ul><p class="tech"><b>Stack:</b> Machine Learning · Graphs · Computer Vision · Quantization · GCP</p></div>
+        </article>
+        <article class="role">
+          <div class="role-meta"><strong>Mar 2020 — Aug 2020</strong>Hokkaido, Japan</div>
+          <div><h3>Artificial Intelligence Research Intern</h3><div class="company">AWL Inc</div><p class="about-copy" style="font-size:15px;margin:16px 0 0;">Built a semi-supervised MixMatch pipeline for image classification, increasing F1 score by 7% by learning from unannotated data.</p></div>
+        </article>
+        <article class="role">
+          <div class="role-meta"><strong>Dec 2019 — Jan 2020</strong>Toronto, Canada</div>
+          <div><h3>Data Science Research Intern</h3><div class="company">PredictivEye Inc</div><p class="about-copy" style="font-size:15px;margin:16px 0 0;">Developed a hybrid recommendation engine combining collaborative filtering and content similarity with contrastive user and item embeddings.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="wrap" aria-labelledby="projects-title">
+      <div class="section-head"><div><span class="section-label">03 / selected work</span><h2 id="projects-title">Problems worth solving.</h2></div><p>A snapshot of the systems and research themes I keep coming back to.</p></div>
+      <div class="project-grid">
+        <article class="project"><div class="project-top"><span>01</span><span>GEN / CV</span></div><div><h3>Synthetic data for safer cars</h3><p>Diffusion-powered inpainting, stylization and domain adaptation pipelines that create useful training data without manual segmentation labels.</p></div><small>→ 95% lower data costs</small></article>
+        <article class="project"><div class="project-top"><span>02</span><span>VLM / PEFT</span></div><div><h3>Efficient multimodal retrieval</h3><p>CLIP-ViT-B/32 fine-tuning with LoRA adapters and curated multimodal datasets for better image-text retrieval.</p></div><small>→ +15% Recall@10</small></article>
+        <article class="project"><div class="project-top"><span>03</span><span>GRAPH / 3D</span></div><div><h3>Human geometry from vision</h3><p>Graph convolutional networks and uncertainty-aware multi-task learning for stature, keypoint and head-position estimation.</p></div><small>→ edge-ready inference</small></article>
+        <article class="project"><div class="project-top"><span>04</span><span>RESEARCH</span></div><div><h3>Learning with less data</h3><p>Semi-supervised learning and contrastive representations that help models extract more signal from imperfect, unannotated datasets.</p></div><small>→ better data efficiency</small></article>
+      </div>
+    </section>
+
+    <section id="skills" class="wrap" aria-labelledby="skills-title">
+      <div class="section-head"><div><span class="section-label">04 / toolkit</span><h2 id="skills-title">The things I use.</h2></div><p>Tools are contextual. Strong fundamentals travel.</p></div>
+      <div class="skills">
+        <div class="skill-group"><h3>Frameworks & libraries</h3><p>PyTorch · TensorFlow · Lightning · Lit-Serve · Python · JAX</p></div>
+        <div class="skill-group"><h3>AI & technologies</h3><p>VLMs · LLMs · Diffusion Models · GenAI · LoRA · RAG · Deep Learning · Computer Vision · Quantization · Transformers · PEFT</p></div>
+        <div class="skill-group"><h3>Platforms & practice</h3><p>Git · Docker · Kubernetes · GCP · MLOps · Agile · Jira · Confluence · GitHub · Flyte</p></div>
+        <div class="skill-group"><h3>How I work</h3><p>Team Leadership · Product Ownership · Problem Solving · Decision Making · Communication</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="education-title">
+      <div class="section-head"><div><span class="section-label">05 / foundations</span><h2 id="education-title">Built on strong fundamentals.</h2></div><p>Engineering depth, research habits and a bias for action.</p></div>
+      <div class="edu-awards">
+        <div>
+          <div class="education-item"><h3>M.Tech · Industrial and Systems Engineering</h3><p>Indian Institute of Technology Kharagpur · Machine Learning, Deep Learning · 2020—2021</p></div>
+          <div class="education-item"><h3>B.Tech · Industrial and Systems Engineering</h3><p>Indian Institute of Technology Kharagpur · 2016—2020</p><p>Technical member, Autonomous Ground Vehicle Research Group</p></div>
+        </div>
+        <div><span class="section-label">Recognition</span><ul class="award-list"><li>High Impact Innovation Award — top 10 innovations at Mercedes-Benz R&amp;D India</li><li>Two-time Silver Star Award winner for performance in the AI Algorithms team</li><li>Innovation and Implemented Patent Award for six AI and computer vision patent filings</li><li>Runner-up, IGVC Oakland University, Michigan</li></ul></div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="cp-title">
+      <div class="section-head"><div><span class="section-label">06 / off the clock</span><h2 id="cp-title">Still solving for fun.</h2></div><p>Competitive programming keeps the problem-solving muscles sharp.</p></div>
+      <div class="cp-grid">
+        <a class="cp-card" href="https://leetcode.com/u/Shubhammawa/" target="_blank" rel="noreferrer"><b>LeetCode ↗</b><span>algorithms &amp; data structures</span></a>
+        <a class="cp-card" href="https://atcoder.jp/users/shubhammawa" target="_blank" rel="noreferrer"><b>AtCoder ↗</b><span>contests &amp; problem solving</span></a>
+        <a class="cp-card" href="https://codeforces.com/profile/shubhammawa" target="_blank" rel="noreferrer"><b>Codeforces ↗</b><span>competitive programming</span></a>
+        <a class="cp-card" href="https://scholar.google.com/" target="_blank" rel="noreferrer"><b>Google Scholar ↗</b><span>research publication</span></a>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap contact" aria-labelledby="contact-title">
+      <div><span class="section-label">07 / contact</span><h2 id="contact-title">Have a hard problem? Let’s make it tractable.</h2><p class="contact-copy">I’m always happy to talk about applied AI, strong engineering teams, research that ships, or the next interesting problem.</p></div>
+      <div class="contact-links"><a href="mailto:shubhammawa1998@gmail.com">shubhammawa1998@gmail.com ↗</a><a href="tel:+918699519186">+91 86995 19186 ↗</a><a href="https://www.linkedin.com/in/shubham-mawa/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="Shubham_Mawa_Resume.pdf" download>Download résumé ↗</a></div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© 2026 Shubham Mawa</span><span>Designed for the curious · Built with plain HTML &amp; CSS</span></footer>
+</body>
+</html>
