@@ -127,6 +127,9 @@
     .cp-card:hover { border-color: var(--lime); }
     .cp-card b { font-size: 16px; }
     .cp-card span { color: var(--muted); font-size: 12px; }
+    .hobby-card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 28px; border: 1px solid var(--line); background: linear-gradient(120deg, rgba(21,31,40,.95), rgba(17,24,32,.7)); }
+    .hobby-card p { max-width: 620px; margin: 10px 0 0; color: var(--muted); }
+    .hobby-card .section-label { color: var(--orange); }
     .contact { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; }
     .contact h2 { max-width: 630px; }
     .contact-copy { max-width: 580px; margin-top: 18px; color: var(--muted); }
@@ -152,6 +155,7 @@
       .section-head p { margin-top: 14px; }
       .project-grid, .skills { grid-template-columns: 1fr; }
       .cp-grid { grid-template-columns: 1fr 1fr; }
+      .hobby-card { grid-template-columns: 1fr; }
       .contact-links { min-width: 0; }
       footer { display: block; }
       footer span { display: block; margin-top: 8px; }
@@ -166,7 +170,7 @@
   <header class="wrap topbar">
     <a class="logo" href="#" aria-label="Shubham Mawa home">shubham<b>.</b>mawa</a>
     <nav class="nav" aria-label="Primary navigation">
-      <a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#hobbies">Hobbies</a><a href="#contact">Contact</a>
       <a class="button" href="Shubham_Mawa_Resume.pdf" download>Download résumé ↗</a>
     </nav>
   </header>
@@ -272,8 +276,16 @@
       </div>
     </section>
 
+    <section id="hobbies" class="wrap" aria-labelledby="hobbies-title">
+      <div class="section-head"><div><span class="section-label">07 / outside work</span><h2 id="hobbies-title">A little more life offline.</h2></div><p>Making space for movement, fresh air and time away from the screen.</p></div>
+      <div class="hobby-card">
+        <div><span class="section-label">Strava · activity profile</span><h3 style="margin-top:12px;">Follow along outdoors.</h3><p>See my latest activities and follow my Strava profile for a glimpse of what I get up to beyond work.</p></div>
+        <a class="button primary" href="https://www.strava.com/athletes/1548927657" target="_blank" rel="noopener noreferrer">Visit my Strava ↗</a>
+      </div>
+    </section>
+
     <section id="contact" class="wrap contact" aria-labelledby="contact-title">
-      <div><span class="section-label">07 / contact</span><h2 id="contact-title">Have a hard problem? Let’s make it tractable.</h2><p class="contact-copy">I’m always happy to talk about applied AI, strong engineering teams, research that ships, or the next interesting problem.</p></div>
+      <div><span class="section-label">08 / contact</span><h2 id="contact-title">Have a hard problem? Let’s make it tractable.</h2><p class="contact-copy">I’m always happy to talk about applied AI, strong engineering teams, research that ships, or the next interesting problem.</p></div>
       <div class="contact-links"><a href="mailto:shubhammawa1998@gmail.com">shubhammawa1998@gmail.com ↗</a><a href="tel:+918699519186">+91 86995 19186 ↗</a><a href="https://www.linkedin.com/in/shubham-mawa/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="Shubham_Mawa_Resume.pdf" download>Download résumé ↗</a></div>
     </section>
   </main>
